@@ -1,0 +1,57 @@
+from data import data
+
+import random
+
+#fucntion for returning name and country
+def format_data(account):
+    player_name=account['name']
+    player_country=account['country']
+    return f"{player_name} from {player_country}"
+
+
+#function for checking
+def check(user_guess,runs_a,runs_b):
+    if runs_a>runs_b:
+        if user_guess=='a':
+            return True
+        else:
+            return False    
+    else:
+        if user_guess=='b':
+            return True
+        else:
+            return False
+player_b=random.choice(data)
+score=0
+continuous=True
+while continuous:
+    #storing player info
+    player_a=player_b
+    player_b=random.choice(data)
+
+    if player_a==player_b:
+        player_b=random.choice(data)
+
+    #printing names
+    print(f"Player A: {format_data(player_a)}.")
+    print("VS")
+    print(f"Player B: {format_data(player_b)}.")
+
+
+    #asking the user to guess
+    guess=input("Who has more runs(A or B): ").lower()
+    print("\n"*20)
+
+    #runs of each player
+    player_a_runs=player_a['runs']
+    player_b_runs=player_b['runs']
+
+    #checking if user is right or wrong
+    correct=check(guess,player_a_runs,player_b_runs)
+
+    if correct:
+        score=score+1
+        print(f"Correct. Current Score={score}\n")
+    else:
+        print(f"Wrong. Final score {score}\n")
+        continuous=False

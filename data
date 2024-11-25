@@ -29,4 +29,7 @@ data=[{'name':'Sachin Tendulkar',
        'country':'Sri Lanka'},
       {'name':'Shivnarine Chandrapaul',
        'runs':20988,
-       'country':'West Indies'}]
+       'country':'West Indies'}, 
+       {'name':'Inzamam-ul-Haq',
+       'runs':'20580',
+       'country':'Pakistan'}]
